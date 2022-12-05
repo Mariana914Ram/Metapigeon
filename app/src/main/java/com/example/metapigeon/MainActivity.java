@@ -1,7 +1,6 @@
 package com.example.metapigeon;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationManagerCompat;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +12,6 @@ import android.util.Log;
 import com.example.metapigeon.ui.main.DBController;
 import java.util.Timer;
 import java.util.TimerTask;
-import static com.example.metapigeon.SpellActivity.NOTIFICACION_ID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,13 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        String menuFragment = getIntent().getStringExtra("option");
-        if(menuFragment != null){
-            //Eliminar la notificación de barra de estado
-            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
-            notificationManagerCompat.cancel(NOTIFICACION_ID);
-        }
 
         admin = new DBController(this,"metapigeonDB",null,1);
 
